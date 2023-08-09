@@ -92,6 +92,7 @@ h6 {
   width: 12rem;
   text-align: center;
   border-radius: 5rem;
+  transition: 0.3s;
 }
 
 
