@@ -1,5 +1,6 @@
 import "./App.css";
 import { useEffect, useState } from "react";
+import CategoryScore from "./components/CategoryScore";
 
 function App() {
   const [data, setData] = useState([]);
@@ -25,6 +26,10 @@ function App() {
   return (
     <>
       {average}
+
+      {data.map((i, index) => {
+        return <CategoryScore data={i} key={index} />;
+      })}
     </>
   );
 }
