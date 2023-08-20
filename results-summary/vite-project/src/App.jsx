@@ -12,7 +12,7 @@ function App() {
   });
 
   const getData = async () => {
-    fetch("./data.json")
+    fetch("/data.json")
       .then((res) => res.json())
       .then((res) => setData(res));
   };
