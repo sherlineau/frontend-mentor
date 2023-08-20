@@ -24,13 +24,36 @@ function App() {
   };
 
   return (
-    <>
-      {average}
+    <div className="container">
+      <div className="container-center">
+        <div className="left">
+          <h2>Your Result</h2>
 
-      {data.map((i, index) => {
-        return <CategoryScore data={i} key={index} />;
-      })}
-    </>
+          <div className="circle">
+            <h1 className="average-score">{average}</h1>
+            <span>of 100</span>
+          </div>
+
+          <h2>Great</h2>
+
+          <p>
+            You scored higher than 65% of the people who have taken these tests.
+          </p>
+        </div>
+
+        <div className="right">
+          <h3>Summary</h3>
+          <div className="categories">
+            {data.map((i, index) => {
+              return <CategoryScore data={i} key={index} />;
+            })}
+          </div>
+          <div className="button">
+            <button >Continue</button>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 }
 
