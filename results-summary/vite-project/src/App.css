@@ -1,42 +1,164 @@
+@import url("https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500;700;800&display=swap");
+
 #root {
-  max-width: 1280px;
+  max-width: 1440px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  font-family: "Hanken Grotesk", sans-serif;
+  color: hsl(var(--clr-gray-blue));
+
+  /* Colors */
+  /* primary colors */
+  --clr-light-red: 0, 100%, 67%;
+  --clr-orange-yellow: 39, 100%, 56%;
+  --clr-green-teal: 166, 100%, 37%;
+  --clr-colbalt-blue: 234, 85%, 45%;
+
+  /* backgrounds  */
+  --clr-slate-blue: 252, 100%, 67%;
+  --clr-royal-blue: 241, 81%, 54%;
+
+  --clr-violet-blue: hsla(256, 72%, 46%, 1);
+  --clr-persian-blue: hsla(241, 72%, 46%, 0);
+
+  /* neutral colors */
+  --clr-white: 0, 0%, 100%;
+  --clr-pale-blue: 221, 100%, 96%;
+  --clr-light-lavendar: 241, 100%, 89%;
+  --clr-gray-blue: 224, 30%, 27%;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+p {
+  font-size: 18px;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.container {
+  width: 700px;
+  margin: 0 auto;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.container-center {
+  display: flex;
+  background-color: hsl(var(--clr-white));
+  border-radius: 1.5rem;
+  box-shadow: 10px 5px 5px black;
 }
 
-.card {
-  padding: 2em;
+.left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 2rem;
+  background: linear-gradient(
+    hsl(var(--clr-slate-blue)),
+    hsl(var(--clr-royal-blue))
+  );
+  color: hsl(var(--clr-pale-blue));
+  border-radius: 1.5rem;
 }
 
-.read-the-docs {
-  color: #888;
+.left p {
+  padding: 0 1rem;
+}
+
+.circle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 175px;
+  height: 175px;
+  border-radius: 50%;
+  background: linear-gradient(
+    var(--clr-violet-blue),
+    var(--clr-persian-blue)
+  );
+}
+
+.circle h1 {
+  margin: 0;
+}
+
+.right {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  width: 100%;
+  padding: 2rem;
+  text-align: left;
+}
+
+.right h3 {
+  margin: 0 1rem;
+}
+
+
+.category {
+  display: flex;
+  width: 90%;
+  height: 50px;
+  margin: 1rem;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 0.75rem;
+}
+
+.category div {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+}
+
+.category h4 {
+  margin-left: 1rem;
+}
+
+.score {
+  color: hsl(var(--clr-gray-blue));
+}
+
+.score span {
+  font-weight: 800;
+}
+
+.Reaction {
+  background-color: hsla(var(--clr-light-red), 0.25);
+  color: hsl(var(--clr-light-red));
+}
+
+.Memory {
+  background-color: hsla(var(--clr-orange-yellow), 0.25);
+  color: hsl(var(--clr-orange-yellow));
+}
+
+.Verbal {
+  background-color: hsla(var(--clr-green-teal), 0.25);
+  color: hsl(var(--clr-green-teal));
+}
+
+.Visual {
+  background-color: hsla(var(--clr-colbalt-blue), 0.25);
+  color: hsl(var(--clr-colbalt-blue));
+}
+
+.button {
+  text-align: center;
+}
+
+.button button {
+  width: 90%;
+  border-radius: 12rem;
+  padding: 0.75rem;
+  background-color: hsl(var(--clr-gray-blue));
+}
+
+.button button:hover {
+  background: linear-gradient(
+    hsl(var(--clr-slate-blue)),
+    hsl(var(--clr-royal-blue))
+  );
 }
