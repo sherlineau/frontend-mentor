@@ -1,5 +1,5 @@
 import './App.css'
-import Accordian from './components/accordian'
+import Accordian from './components/Accordian'
 import icon_star from './assets/images/icon-star.svg'
 import { useEffect, useState } from 'react'
 
