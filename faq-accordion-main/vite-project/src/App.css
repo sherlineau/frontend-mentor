@@ -1,0 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;600;700&display=swap');
+
+#root {
+  width: 100%;
+  height: 100vh;
+  margin: 0 auto;
+  background: url("./assets/images/background-pattern-desktop.svg") no-repeat;
+  background-size: auto 500px;
+  background-color: hsl(275, 100%, 97%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  font-family: 'Work Sans', sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: hsl(292, 42%, 14%);
+}
+
+p {
+  color: hsl(292, 16%, 49%);
+
+}
+
+.row {
+  display: flex;
+}
+
+.space-between {
+  justify-content: space-between;
+}
+
+
+.main {
+  border-radius: .75rem;
+  width: 40%;
+  padding: 3rem;
+  margin: 0 auto;
+  background-color: hsl(0, 0%, 100%);
+}
+
+.header h1{
+  margin: 1rem;
+}
+
+.accordian-header:hover h4{
+  color: #AD28EB;
+} 
+
+.accordian img {
+  margin-left: 1rem;
+}
+
+.accordian + .accordian {
+  border-top: hsla(292, 16%, 49%, .15) solid 1px;
+}
+
+@media screen and (max-width: 700px) {
+  .main {
+    width: 70%;
+    padding: 2rem;
+  }
+}

@@ -1,0 +1,18 @@
+[
+    {
+        "question": "What is Frontend Mentor, and how will it help me?",
+        "answer": "Frontend Mentor offers realistic coding challenges to help developers improve their frontend coding skills with proejcts in HTML, CSS, and JavaScript.  It's suitable for all levels and ideal for portfolio building."
+    },
+    {
+        "question":"Is Frontend Mentor free?",
+        "answer": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia ratione quod obcaecati deleniti placeat? Quod nam voluptatibus possimus aperiam adipisci quasi, fugiat repellat fugit, eum quae nemo ab, labore dignissimos?"
+    },
+    {
+        "question":"Can I use Frontend Mentor projects in my portfolio?",
+        "answer": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia ratione quod obcaecati deleniti placeat? Quod nam voluptatibus possimus aperiam adipisci quasi, fugiat repellat fugit, eum quae nemo ab, labore dignissimos?"
+    },
+    {
+        "question":"How can I get help if I'm stuck on a challenge?",
+        "answer": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia ratione quod obcaecati deleniti placeat? Quod nam voluptatibus possimus aperiam adipisci quasi, fugiat repellat fugit, eum quae nemo ab, labore dignissimos?"
+    }
+]
