@@ -27,6 +27,13 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  /* colors */
+  --clr-charcoal: hsl(235,18%,26%);
+  --clr-slate-grey: hsl(234, 29%, 20%);
+  --clr-grey: hsl(231, 7%, 60%);
+  --clr-white: hsl(0, 0%, 100%);
+  --clr-tomato: hsl(4, 100%, 67%);
 }
 
 * {
@@ -40,10 +47,20 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
 }
 
+h1 {
+  font-size: 3rem;
+}
+
 body {
   display: flex;
   margin: auto;
   justify-content: center;
   align-items: center;
   height: 100vh;
+  background-color: var(--clr-charcoal);
+}
+
+.row {
+  display: flex;
+  gap: 2rem;
 }
