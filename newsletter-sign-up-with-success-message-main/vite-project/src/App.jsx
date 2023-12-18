@@ -5,12 +5,9 @@ import Form from "./components/Form";
 function App() {
   const [success, setSuccess] = useState(false);
 
-  const onSubmit = (e) => {
-    e.preventDefault();
-    setSuccess(true);
+  const onSubmit = (isValid) => {
+    setSuccess(isValid)
   };
-
-  // TODO test form change on submit props is working correctly
 
   return (
     <div className="main">
@@ -19,7 +16,7 @@ function App() {
       default state behavior false: form should show 
       when state is changed to true: success page is shown
       */}
-      {success ?  <div /> : <Form onSubmitProp={onSubmit} />}
+      {success ?  <div /> : <Form onSubmitProp={onSubmit}  /> }
     </div>
   );
 }
