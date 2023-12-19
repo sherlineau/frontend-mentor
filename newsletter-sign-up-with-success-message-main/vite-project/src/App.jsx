@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Form from "./components/Form";
+import Success from "./components/Success";
 
 function App() {
   const [success, setSuccess] = useState(false);
@@ -15,7 +16,7 @@ function App() {
       default state behavior false: form should show 
       when state is changed to true: success page is shown
       */}
-      {success ?  <div /> : <Form onSubmitProp={onSubmit}  /> }
+      {success ? <Success /> : <Form onSubmitProp={onSubmit} />}
     </div>
   );
 }

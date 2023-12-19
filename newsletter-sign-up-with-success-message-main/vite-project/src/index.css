@@ -53,22 +53,20 @@ h1 {
 
 body {
   display: flex;
-  margin: auto;
   justify-content: center;
   align-items: center;
   height: 100vh;
   background-color: var(--clr-charcoal);
+  max-width: 1440px;
 }
 
 .row {
   display: flex;
   gap: 2rem;
+  margin: auto;
 }
 
-.main {
-  max-width: 1440px;
-  width: 95%;
-  margin: 0 auto;
+.white-background {
   background-color: var(--clr-white);
   border-radius: 2rem;
   padding: 2rem;
@@ -100,8 +98,8 @@ li::before {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 1rem;
-  width: 50%;
+  margin: 0 auto;
+  width: 85%;
 }
 
 .form h1, p, ul, form {
@@ -138,7 +136,7 @@ li::before {
   border: .5px solid var(--clr-tomato);
 }
 
-.form button {
+button {
   width: 100%;
   color: var(--clr-white);
   background-color: var(--clr-slate-grey);
@@ -148,6 +146,21 @@ li::before {
   border: none;
 }
 
-.form button:hover {
+button:hover {
   background: var(--clr-tomato);
 }
+
+.success {
+  display: flex;
+  flex-direction: column;
+  width: 45%;
+  margin: 0 auto;
+  padding: 3rem;
+}
+
+.success-icon {
+  width: 5rem;
+  max-width: 50;
+}
+
+
