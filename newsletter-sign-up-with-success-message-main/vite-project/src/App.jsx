@@ -16,7 +16,7 @@ function App() {
       default state behavior false: form should show 
       when state is changed to true: success page is shown
       */}
-      {success ? <Success /> : <Form onSubmitProp={onSubmit} />}
+      {success ? <Success onSubmitProp={onSubmit} /> : <Form onSubmitProp={onSubmit} />}
     </div>
   );
 }
