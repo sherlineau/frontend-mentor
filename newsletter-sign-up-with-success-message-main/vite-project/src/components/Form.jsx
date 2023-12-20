@@ -1,10 +1,28 @@
-import React, { useState } from "react";
-import hero from "../assets/images/illustration-sign-up-desktop.svg";
+import React, { useEffect, useState } from "react";
+import desktop from '../assets/images/illustration-sign-up-desktop.svg'
+import mobile from '../assets/images/illustration-sign-up-mobile.svg'
 
 const Form = (props) => {
   const { onSubmitProp } = props;
   const [email, setEmail] = useState("");
   const [validEmail, setValidEmail] = useState(undefined);
+
+    // get the window width for changing the hero image
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth)
+    const imgUrl = windowWidth >= 700 ? desktop : mobile;
+
+    useEffect(()=> {
+      const handleWindowResize = () => {
+        setWindowWidth(window.innerWidth)
+      }
+
+      window.addEventListener('resize', handleWindowResize)
+
+      return ()=> {
+        window.removeEventListener('resize',handleWindowResize)
+      }
+    },[])
+
 
   // function used to compare user input to regular expression
   const handleEmailChange = (e) => {
@@ -26,9 +44,9 @@ const Form = (props) => {
   };
 
   return (
-    <div className="form white-background">
+    <div className="white-background">
       <div className="row">
-        <div className="col">
+          <div className="form">
           <h1>Stay updated!</h1>
           <p>Join 60,000+ product managers receiving monthly updates on:</p>
           <ul>
@@ -60,9 +78,7 @@ const Form = (props) => {
             <button type="submit">Subscribe to monthly newsletter</button>
           </form>
         </div>
-        <div className="col">
-          <img src={hero} className="hero-img" />
-        </div>
+          <img src={imgUrl} className="hero-img" />
       </div>
     </div>
   );
