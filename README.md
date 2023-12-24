@@ -13,3 +13,4 @@
 2. [Three Column Preview](https://github.com/sherlineau/frontend-mentor/tree/main/three-column-preview)
 3. [Results Summary](https://github.com/sherlineau/frontend-mentor/tree/main/results-summary)
 4. [FAQ accordion](https://github.com/sherlineau/frontend-mentor/tree/faq-accordion/faq-accordion-main)
+5. [QR Code Component](https://github.com/sherlineau/frontend-mentor/tree/qr-card/qr-code-component-main)
