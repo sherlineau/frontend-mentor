@@ -6,7 +6,7 @@ function App() {
   const [month, setMonth] = useState("");
   const [year, setYear] = useState("");
   const [errors, setErrors] = useState([]);
-  const [age, setAge] = useState({})
+  const [age, setAge] = useState({});
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -55,17 +55,36 @@ function App() {
         errorMessages["day"] = "Must be a valid day";
       }
 
-      // if any errors were generated => set errors 
+      // if any errors were generated => set errors
       if (Object.keys(errorMessages).length > 0) {
         setErrors(errorMessages);
-      } 
+      }
 
       // otherwise caculate age
       else {
+        // calculate different in years, months and days
+        let ageYear = today.getFullYear() - birthday.getFullYear();
+        let ageMonths = today.getMonth() - birthday.getMonth();
+        let ageDays = today.getDate() - birthday.getDate();
 
-      //
+        // adjust for negative values
+        if (ageDays < 0) {
+          const lastMonthDays = new Date(
+            today.getFullYear(),
+            today.getMonth(),
+            0
+          ).getDate();
+          ageDays += lastMonthDays;
+          ageMonths--;
+        }
+
+        if (ageMonths < 0) {
+          ageMonths += 12;
+          ageYear--;
+        }
+
+        setAge({ ageMonths, ageYear, ageDays });
       }
-
     }
   };
 
