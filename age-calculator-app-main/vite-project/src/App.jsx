@@ -1,6 +1,8 @@
 import { useState } from "react";
 import icon_arrow from "./assets/images/icon-arrow.svg";
 
+//! TODO display error messages
+
 function App() {
   const [day, setDay] = useState("");
   const [month, setMonth] = useState("");
