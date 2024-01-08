@@ -8,7 +8,11 @@ function App() {
   const [month, setMonth] = useState("");
   const [year, setYear] = useState("");
   const [errors, setErrors] = useState([]);
-  const [age, setAge] = useState({});
+  const [age, setAge] = useState({
+    ageYear: "--",
+    ageDays: "--",
+    ageMonths: "--",
+  });
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -20,6 +24,7 @@ function App() {
     const errorMessages = {};
     const today = new Date();
     const birthday = new Date(`${month} ${day} ${year}`);
+    console.log(birthday);
 
     // first check if birthday is a valid date
 
@@ -132,6 +137,13 @@ function App() {
           <img src={icon_arrow} className="btn" alt="submit button" />
         </button>
       </form>
+
+      <div>
+        {age.ageDays} Days
+        {age.ageYear} Year
+        {age.ageMonths} Months
+      </div>
+
     </div>
   );
 }
