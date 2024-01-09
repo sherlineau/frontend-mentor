@@ -1,13 +1,16 @@
 import { useState } from "react";
 import icon_arrow from "./assets/images/icon-arrow.svg";
 
-
 function App() {
   const [day, setDay] = useState("");
   const [month, setMonth] = useState("");
   const [year, setYear] = useState("");
   const [errors, setErrors] = useState([]);
-  const [age, setAge] = useState({});
+  const [age, setAge] = useState({
+    ageYear: "--",
+    ageDays: "--",
+    ageMonths: "--",
+  });
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -141,6 +144,12 @@ function App() {
           <img src={icon_arrow} className="btn" alt="submit button" />
         </button>
       </form>
+
+      <div className="results">
+        {age.ageYear} years
+        {age.ageMonths} months
+        {age.ageYear} days
+      </div>
     </div>
   );
 }
