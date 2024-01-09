@@ -1,7 +1,6 @@
 import { useState } from "react";
 import icon_arrow from "./assets/images/icon-arrow.svg";
 
-//! TODO display error messages
 
 function App() {
   const [day, setDay] = useState("");
@@ -93,41 +92,51 @@ function App() {
   return (
     <div className="container">
       <form onSubmit={handleSubmit}>
-        <label htmlFor="day" className="form-label">
-          DAY
-        </label>
-        <input
-          type="text"
-          name="day"
-          id="day"
-          onChange={(e) => setDay(e.target.value)}
-          value={day}
-          placeholder="DD"
-        />
+        <div>
+          <label htmlFor="day" className="form-label">
+            DAY
+          </label>
+          <input
+            type="text"
+            name="day"
+            id="day"
+            onChange={(e) => setDay(e.target.value)}
+            value={day}
+            placeholder="DD"
+          />
+          {errors ? <p>{errors["day"]}</p> : <></>}
+        </div>
 
-        <label htmlFor="month" className="form-label">
-          MONTH
-        </label>
-        <input
-          type="text"
-          name="month"
-          id="month"
-          onChange={(e) => setMonth(e.target.value)}
-          value={month}
-          placeholder="MM"
-        />
+        <div>
+          <label htmlFor="month" className="form-label">
+            MONTH
+          </label>
+          <input
+            type="text"
+            name="month"
+            id="month"
+            onChange={(e) => setMonth(e.target.value)}
+            value={month}
+            placeholder="MM"
+          />
+          {errors ? <p>{errors["month"]}</p> : <></>}
+        </div>
 
-        <label htmlFor="year" className="form-label">
-          YEAR
-        </label>
-        <input
-          type="text"
-          name="year"
-          id="year"
-          onChange={(e) => setYear(e.target.value)}
-          value={year}
-          placeholder="YYYY"
-        />
+        <div>
+          <label htmlFor="year" className="form-label">
+            YEAR
+          </label>
+          <input
+            type="text"
+            name="year"
+            id="year"
+            onChange={(e) => setYear(e.target.value)}
+            value={year}
+            placeholder="YYYY"
+          />
+          {errors ? <p>{errors["year"]}</p> : <></>}
+        </div>
+
         <button type="submit">
           <img src={icon_arrow} className="btn" alt="submit button" />
         </button>
