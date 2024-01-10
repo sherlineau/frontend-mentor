@@ -23,72 +23,63 @@ function App() {
     const today = new Date();
     const birthday = new Date(`${month} ${day} ${year}`);
 
-    // first check if birthday is a valid date
+    // checks for empty field and if its a number
+    Object.keys(date).forEach((key) => {
+      if (date[key].length == 0) {
+        errorMessages[key] = "This is required";
+      }
+      if (isNaN(date[key])) {
+        errorMessages[key] = "Must be a number";
+      }
+    });
 
-    if (birthday == "Invalid Date") {
+    if (date["month"] < 0 || date["month"] > 12) {
+      errorMessages["month"] = "Must be a vaild month";
+    }
+
+    // checks if valid year, has to be before current dates year
+    if (date["year"] > today.getFullYear()) {
+      errorMessages["year"] = "Must be in the past";
+    }
+
+    //
+    const getDaysInMonth = new Date(year, month, 0).getDate();
+    if (day < 1 || day > getDaysInMonth) {
+      errorMessages["day"] = "Must be a valid day";
+    }
+
+    // if any errors were generated => set errors
+    if (Object.keys(errorMessages).length > 0) {
+      setErrors(errorMessages);
+    } else if (birthday == "Invalid Date") {
       errorMessages["day"] = "Must be a valid day";
       errorMessages["month"] = "Must be a vaild month";
       errorMessages["year"] = "Must be in the past";
       setErrors(errorMessages);
-    }
-
-    // if it is a valid birthday, then run other validations
-    else {
-      // checks for empty field and if its a number
-      Object.keys(date).forEach((key) => {
-        if (date[key].length == 0) {
-          errorMessages[key] = "This is required";
-        }
-        if (isNaN(date[key])) {
-          errorMessages[key] = "Must be a number";
-        }
-      });
-
-      if (date["month"] < 0 || date["month"] > 12) {
-        errorMessages["month"] = "Must be a vaild month";
-      }
-
-      // checks if valid year, has to be before current dates year
-      if (date["year"] > today.getFullYear()) {
-        errorMessages["year"] = "Must be in the past";
-      }
-
-      //
-      const getDaysInMonth = new Date(year, month, 0).getDate();
-      if (day < 1 || day > getDaysInMonth) {
-        errorMessages["day"] = "Must be a valid day";
-      }
-
-      // if any errors were generated => set errors
-      if (Object.keys(errorMessages).length > 0) {
-        setErrors(errorMessages);
-      }
-
+    } else {
       // otherwise caculate age
-      else {
-        // calculate different in years, months and days
-        let ageYear = today.getFullYear() - birthday.getFullYear();
-        let ageMonths = today.getMonth() - birthday.getMonth();
-        let ageDays = today.getDate() - birthday.getDate();
+      // calculate different in years, months and days
+      let ageYear = today.getFullYear() - birthday.getFullYear();
+      let ageMonths = today.getMonth() - birthday.getMonth();
+      let ageDays = today.getDate() - birthday.getDate();
 
-        // adjust for negative values
-        if (ageDays < 0) {
-          const lastMonthDays = new Date(
-            today.getFullYear(),
-            today.getMonth(),
-            0
-          ).getDate();
-          ageDays += lastMonthDays;
-          ageMonths--;
-        }
-
-        if (ageMonths < 0) {
-          ageMonths += 12;
-          ageYear--;
-        }
-
-        setAge({ ageMonths, ageYear, ageDays });
+      // adjust for negative values
+      if (ageDays < 0) {
+        const lastMonthDays = new Date(
+          today.getFullYear(),
+          today.getMonth(),
+          0
+        ).getDate();
+        ageDays += lastMonthDays;
+        ageMonths--;
       }
+
+      if (ageMonths < 0) {
+        ageMonths += 12;
+        ageYear--;
+      }
+
+      setAge({ ageMonths, ageYear, ageDays });
     }
   };
 
