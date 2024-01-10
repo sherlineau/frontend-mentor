@@ -134,9 +134,12 @@ function App() {
           </div>
         </div>
 
-        <button type="submit">
-          <img src={icon_arrow} className="btn" alt="submit button" />
-        </button>
+        <div className="divider">
+          <button type="submit" className="form-button">
+            <img src={icon_arrow} className="btn" alt="submit button" />
+          </button>
+          <div className="line"></div>
+        </div>
       </form>
 
       <div className="results">
