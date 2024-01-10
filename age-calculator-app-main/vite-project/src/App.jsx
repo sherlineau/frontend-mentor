@@ -80,13 +80,15 @@ function App() {
       }
 
       setAge({ ageMonths, ageYear, ageDays });
+      setErrors([]);
     }
   };
 
   return (
     <div className="container">
-      <form onSubmit={handleSubmit}>
-        <div>
+      <form onSubmit={handleSubmit} className="form">
+        <div className="row">
+          <div className={`col ${errors["day"] ? "errors" : ""}`}>
           <label htmlFor="day" className="form-label">
             DAY
           </label>
@@ -98,10 +100,10 @@ function App() {
             value={day}
             placeholder="DD"
           />
-          {errors ? <p>{errors["day"]}</p> : <></>}
+            {errors ? <p className="errors">{errors["day"]}</p> : <></>}
         </div>
 
-        <div>
+          <div className={`col ${errors["month"] ? "errors" : ""}`}>
           <label htmlFor="month" className="form-label">
             MONTH
           </label>
@@ -113,10 +115,10 @@ function App() {
             value={month}
             placeholder="MM"
           />
-          {errors ? <p>{errors["month"]}</p> : <></>}
+            {errors ? <p className="errors">{errors["month"]}</p> : <></>}
         </div>
 
-        <div>
+          <div className={`col ${errors["year"] ? "errors" : ""}`}>
           <label htmlFor="year" className="form-label">
             YEAR
           </label>
@@ -128,7 +130,8 @@ function App() {
             value={year}
             placeholder="YYYY"
           />
-          {errors ? <p>{errors["year"]}</p> : <></>}
+            {errors ? <p className="errors">{errors["year"]}</p> : <></>}
+          </div>
         </div>
 
         <button type="submit">
