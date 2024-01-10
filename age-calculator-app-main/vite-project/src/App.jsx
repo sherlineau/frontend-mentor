@@ -33,6 +33,7 @@ function App() {
       }
     });
 
+    //checks if month is less than 1 or greater than 12
     if (date["month"] < 0 || date["month"] > 12) {
       errorMessages["month"] = "Must be a vaild month";
     }
@@ -42,7 +43,7 @@ function App() {
       errorMessages["year"] = "Must be in the past";
     }
 
-    //
+    //gets the number of days in inputted month and checks if the input is within the range
     const getDaysInMonth = new Date(year, month, 0).getDate();
     if (day < 1 || day > getDaysInMonth) {
       errorMessages["day"] = "Must be a valid day";
@@ -80,6 +81,7 @@ function App() {
       }
 
       setAge({ ageMonths, ageYear, ageDays });
+      // reset errors
       setErrors([]);
     }
   };
