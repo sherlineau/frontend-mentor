@@ -115,5 +115,12 @@ input[type="text"] {
 
 .errors input {
   border: 1px solid hsl(0, 100%, 67%);
+}
 
+.results {
+  margin: 2.5rem 0;
+}
+
+.accent {
+  color: hsl(259, 100%, 65%);
 }
