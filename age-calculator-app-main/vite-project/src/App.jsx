@@ -1,6 +1,8 @@
 import { useState } from "react";
 import icon_arrow from "./assets/images/icon-arrow.svg";
 
+// !TODO desktop styling
+
 function App() {
   const [day, setDay] = useState("");
   const [month, setMonth] = useState("");
