@@ -140,9 +140,15 @@ function App() {
       </form>
 
       <div className="results">
-        {age.ageYear} years
-        {age.ageMonths} months
-        {age.ageYear} days
+        <h1>
+          <span className="accent">{age.ageYear}</span> years
+        </h1>
+        <h1>
+          <span className="accent">{age.ageMonths}</span> months
+        </h1>
+        <h1>
+          <span className="accent">{age.ageDays}</span> days
+        </h1>
       </div>
     </div>
   );
