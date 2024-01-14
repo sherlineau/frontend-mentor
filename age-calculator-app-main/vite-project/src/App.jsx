@@ -1,7 +1,7 @@
 import { useState } from "react";
 import icon_arrow from "./assets/images/icon-arrow.svg";
 
-//! TODO display error messages
+// !TODO desktop styling
 
 function App() {
   const [day, setDay] = useState("");
@@ -26,124 +26,147 @@ function App() {
     const birthday = new Date(`${month} ${day} ${year}`);
     console.log(birthday);
 
-    // first check if birthday is a valid date
+    // checks for empty field and if its a number
+    Object.keys(date).forEach((key) => {
+      if (date[key].length == 0) {
+        errorMessages[key] = "This is required";
+      }
+      if (isNaN(date[key])) {
+        errorMessages[key] = "Must be a number";
+      }
+    });
 
-    if (birthday == "Invalid Date") {
+    //checks if month is less than 1 or greater than 12
+    if (date["month"] < 0 || date["month"] > 12) {
+      errorMessages["month"] = "Must be a vaild month";
+    }
+
+    // checks if valid year, has to be before current dates year
+    if (date["year"] > today.getFullYear()) {
+      errorMessages["year"] = "Must be in the past";
+    }
+
+    //gets the number of days in inputted month and checks if the input is within the range
+    const getDaysInMonth = new Date(year, month, 0).getDate();
+    if (day < 1 || day > getDaysInMonth) {
+      errorMessages["day"] = "Must be a valid day";
+    }
+
+    // if any errors were generated => set errors
+    if (Object.keys(errorMessages).length > 0) {
+      setErrors(errorMessages);
+    } else if (birthday == "Invalid Date") {
       errorMessages["day"] = "Must be a valid day";
       errorMessages["month"] = "Must be a vaild month";
       errorMessages["year"] = "Must be in the past";
       setErrors(errorMessages);
-    }
-
-    // if it is a valid birthday, then run other validations
-    else {
-      // checks for empty field and if its a number
-      Object.keys(date).forEach((key) => {
-        if (date[key].length == 0) {
-          errorMessages[key] = "This is required";
-        }
-        if (isNaN(date[key])) {
-          errorMessages[key] = "Must be a number";
-        }
-      });
-
-      if (date["month"] < 0 || date["month"] > 12) {
-        errorMessages["month"] = "Must be a vaild month";
-      }
-
-      // checks if valid year, has to be before current dates year
-      if (date["year"] > today.getFullYear()) {
-        errorMessages["year"] = "Must be in the past";
-      }
-
-      //
-      const getDaysInMonth = new Date(year, month, 0).getDate();
-      if (day < 1 || day > getDaysInMonth) {
-        errorMessages["day"] = "Must be a valid day";
-      }
-
-      // if any errors were generated => set errors
-      if (Object.keys(errorMessages).length > 0) {
-        setErrors(errorMessages);
-      }
-
+    } else {
       // otherwise caculate age
-      else {
-        // calculate different in years, months and days
-        let ageYear = today.getFullYear() - birthday.getFullYear();
-        let ageMonths = today.getMonth() - birthday.getMonth();
-        let ageDays = today.getDate() - birthday.getDate();
+      // calculate different in years, months and days
+      let ageYear = today.getFullYear() - birthday.getFullYear();
+      let ageMonths = today.getMonth() - birthday.getMonth();
+      let ageDays = today.getDate() - birthday.getDate();
 
-        // adjust for negative values
-        if (ageDays < 0) {
-          const lastMonthDays = new Date(
-            today.getFullYear(),
-            today.getMonth(),
-            0
-          ).getDate();
-          ageDays += lastMonthDays;
-          ageMonths--;
-        }
-
-        if (ageMonths < 0) {
-          ageMonths += 12;
-          ageYear--;
-        }
-
-        setAge({ ageMonths, ageYear, ageDays });
+      // adjust for negative values
+      if (ageDays < 0) {
+        const lastMonthDays = new Date(
+          today.getFullYear(),
+          today.getMonth(),
+          0
+        ).getDate();
+        ageDays += lastMonthDays;
+        ageMonths--;
       }
+
+      if (ageMonths < 0) {
+        ageMonths += 12;
+        ageYear--;
+      }
+
+      setAge({ ageMonths, ageYear, ageDays });
+      // reset errors
+      setErrors([]);
     }
   };
 
   return (
     <div className="container">
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="day" className="form-label">
-          DAY
-        </label>
-        <input
-          type="text"
-          name="day"
-          id="day"
-          onChange={(e) => setDay(e.target.value)}
-          value={day}
-          placeholder="DD"
-        />
+      <form onSubmit={handleSubmit} className="form">
+        <div className="row">
+          <div className={`col ${errors["day"] ? "errors" : ""}`}>
+          <label htmlFor="day" className="form-label">
+            DAY
+          </label>
+          <input
+            type="text"
+            name="day"
+            id="day"
+            onChange={(e) => setDay(e.target.value)}
+            value={day}
+            placeholder="DD"
+          />
+            {errors ? <p className="errors">{errors["day"]}</p> : <></>}
+        </div>
 
-        <label htmlFor="month" className="form-label">
-          MONTH
-        </label>
-        <input
-          type="text"
-          name="month"
-          id="month"
-          onChange={(e) => setMonth(e.target.value)}
-          value={month}
-          placeholder="MM"
-        />
+          <div className={`col ${errors["month"] ? "errors" : ""}`}>
+          <label htmlFor="month" className="form-label">
+            MONTH
+          </label>
+          <input
+            type="text"
+            name="month"
+            id="month"
+            onChange={(e) => setMonth(e.target.value)}
+            value={month}
+            placeholder="MM"
+          />
+            {errors ? <p className="errors">{errors["month"]}</p> : <></>}
+        </div>
 
-        <label htmlFor="year" className="form-label">
-          YEAR
-        </label>
-        <input
-          type="text"
-          name="year"
-          id="year"
-          onChange={(e) => setYear(e.target.value)}
-          value={year}
-          placeholder="YYYY"
-        />
-        <button type="submit">
-          <img src={icon_arrow} className="btn" alt="submit button" />
-        </button>
+          <div className={`col ${errors["year"] ? "errors" : ""}`}>
+          <label htmlFor="year" className="form-label">
+            YEAR
+          </label>
+          <input
+            type="text"
+            name="year"
+            id="year"
+            onChange={(e) => setYear(e.target.value)}
+            value={year}
+            placeholder="YYYY"
+          />
+            {errors ? <p className="errors">{errors["year"]}</p> : <></>}
+          </div>
+        </div>
+
+        <div className="divider">
+          <button type="submit" className="form-button">
+            <img src={icon_arrow} className="btn" alt="submit button" />
+          </button>
+          <div className="line"></div>
+        </div>
       </form>
 
+<<<<<<< HEAD
       <div>
         {age.ageDays} Days
         {age.ageYear} Year
         {age.ageMonths} Months
       </div>
 
+=======
+      <div className="results">
+        <h1>
+          <span className="accent">{age.ageYear}</span> years
+        </h1>
+        <h1>
+          <span className="accent">{age.ageMonths}</span> months
+        </h1>
+        <h1>
+          <span className="accent">{age.ageDays}</span> days
+        </h1>
+      </div>
+>>>>>>> 1fa779bbba34ccb4d127b0f6161146b5f0b4fe39
     </div>
   );
 }
