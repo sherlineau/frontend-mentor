@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import dice from './assets/images/icon-dice.svg'
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -21,11 +22,14 @@ function App() {
   return (
     <div className="container">
       {loading && <div>Loading...</div>}
-      {!loading && 
-      <div className="card">
-        <h1>ADVICE #{data.id}</h1>
-        {`"${data.advice}"`}
-        </div>}
+      {!loading && (
+        <div className="card">
+          <h1>ADVICE #{data.id}</h1>
+          {`"${data.advice}"`}
+          <div className="divider" />
+          <img src={dice} alt="random advice button" className="dice"/>
+        </div>
+      )}
     </div>
   );
 }
