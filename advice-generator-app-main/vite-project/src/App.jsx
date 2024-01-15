@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import dice from './assets/images/icon-dice.svg'
-import './app.css'
+import './App.css'
 import mobile_divider from './assets/images/pattern-divider-mobile.svg'
 import desktop_divider from './assets/images/pattern-divider-desktop.svg'
 
