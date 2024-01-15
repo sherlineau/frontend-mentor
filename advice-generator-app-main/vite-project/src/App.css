@@ -74,11 +74,16 @@ body {
   height: 100%;
   padding: 1.5rem;
   border-radius: 50%;
+  border: none;
 }
 
 .dice img {
   width: 2rem;
   object-fit: cover;
+}
+
+.dice:hover {
+  box-shadow: 0 0 15px 1px var(--clr-accent) ;
 }
 
 @media screen and (min-width: 600px) {
