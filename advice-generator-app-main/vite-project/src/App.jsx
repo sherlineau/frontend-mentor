@@ -5,10 +5,6 @@ import './App.css'
 import mobile_divider from './assets/images/pattern-divider-mobile.svg'
 import desktop_divider from './assets/images/pattern-divider-desktop.svg'
 
-/* TODO!
-- See hover states for all interactive elements on the page
-- Generate a new piece of advice by clicking the dice icon
-*/
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -17,6 +13,10 @@ function App() {
 
   // on load, get random advice from adviceslip api
   useEffect(() => {
+    fetchData();
+  }, []);
+
+  const fetchData = () => {
     setLoading(true);
     axios
       .get(`https://api.adviceslip.com/advice`)
@@ -25,7 +25,10 @@ function App() {
       })
       .catch((err) => console.log(err));
     setLoading(false);
-  }, []);
+  }
+  
+
+  const refresh = () => fetchData();
 
   return (
     <div className="container">
@@ -40,9 +43,9 @@ function App() {
           sizes="(max-width: 375px) 375px, 1000px"
           className="divider" 
           />
-          <div className="dice">
+          <button onClick={refresh} className="dice">
           <img src={dice} alt="random advice button" />
-          </div>
+          </button>
         </div>
       )}
     </div>
