@@ -1,0 +1,90 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-family: 'Manrope', sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+#root {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+
+  --clr-accent: hsl(150, 100%, 66%);
+  --clr-text: hsl(193, 38%, 86%);
+}
+
+body {
+  background-color: hsl(218, 23%, 16%);
+  /* for setting minimum height to the height of screen and placing the main container in the center  */
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  display: flex;  
+  margin: auto;
+  width: 95%;
+  border-radius: .75rem;
+  background-color: hsl(217, 19%, 24%);
+  text-align: center;
+}
+
+.card {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 3rem 2rem 1rem 2rem;
+}
+
+.advice-id {
+  color: var(--clr-accent);
+  letter-spacing: .25rem;
+  margin: 0;
+}
+
+.divider {
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.advice-text {
+  font-weight: 800;
+  font-size: 1.75rem;
+  color: var(--clr-text);
+  margin: 1.5rem 0;
+}
+
+.dice {
+  display: flex;
+  position: relative;
+  top: 3.5rem;
+  background-color: var(--clr-accent);
+  height: 100%;
+  padding: 1.5rem;
+  border-radius: 50%;
+}
+
+.dice img {
+  width: 2rem;
+  object-fit: cover;
+}
+
+@media screen and (min-width: 600px) {
+  .container{width: 80%;}
+}
+
+@media screen and (min-width: 1000px) {
+  .container{width: 50%;}
+}
