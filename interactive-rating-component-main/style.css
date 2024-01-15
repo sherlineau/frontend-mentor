@@ -2,4 +2,16 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    font-size: 15px;
+
+    --clr-primary: hsl(25, 97%, 53%);
+    --clr-white: hsl(0, 0%, 100%);
+    --clr-lgt-grey: hsl(217, 12%, 63%);
+    --clr-med-grey: hsl(216, 12%, 54%);
+    --clr-dark-blue: hsl(213, 19%, 18%);
+    --clr-ex-dark-blue: hsl(216, 12%, 8%);
 }
+
+/*  mobile size: 375px
+    desktop size: 1440px
+*/
