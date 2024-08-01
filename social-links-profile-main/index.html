@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+
+    <!-- import for css stylesheet -->
+    <link rel="stylesheet" href="styles.css" />
+
+    <!-- import for google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>Frontend Mentor | Social links profile</title>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style>
+      .attribution {
+        font-size: 11px;
+        text-align: center;
+        height: 20px;
+      }
+      .attribution a {
+        color: hsl(228, 45%, 44%);
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <div class="container">
+        <div class="profile-info">
+          <img
+            src="./assets/images/avatar-jessica.jpeg"
+            alt="profile pictute of Jessica Randall"
+          />
+          <h1 class="name">Jessica Randall</h1>
+          <h3 class="location">London, United Kingdom</h3>
+          <p>"Front-end developer and avid reader."</p>
+        </div>
+
+        <button class="social-link">GitHub</button>
+        <button class="social-link">Frontend Mentor</button>
+        <button class="social-link">LinkedIn</button>
+        <button class="social-link">Twitter</button>
+        <button class="social-link">Instagram</button>
+      </div>
+    </section>
+
+    <div class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+        >Frontend Mentor</a
+      >. Coded by <a href="https://github.com/sherlineau">Sherline Au</a>.
+    </div>
+  </body>
+
+  <!-- javascript for dynamically finding the height of the div to subtract it from the 100vh for the main section -->
+  <script>
+    function checkAttributionHeight () {
+      const div = document.querySelector(".attribution");
+      const styles = window.getComputedStyle(div);
+      const divHeight = styles.height
+
+      document.documentElement.style.setProperty("--sl-attribution-height",divHeight)
+    }
+    addEventListener("resize",checkAttributionHeight);
+    addEventListener("orientationchange",checkAttributionHeight);
+    checkAttributionHeight();
+  </script>
+</html>
