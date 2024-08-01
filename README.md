@@ -16,3 +16,4 @@
 3. [Results Summary](https://github.com/sherlineau/frontend-mentor/tree/main/results-summary)
 4. [FAQ accordion](https://github.com/sherlineau/frontend-mentor/tree/faq-accordion/faq-accordion-main)
 5. [QR Code Component](https://github.com/sherlineau/frontend-mentor/tree/qr-card/qr-code-component-main)
+6. [Social Links](https://github.com/sherlineau/frontend-mentor/tree/main/social-links-profile-main)
