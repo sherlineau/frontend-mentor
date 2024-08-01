@@ -33,7 +33,7 @@ section {
   align-self: center;
   width: 300px;
   background-color: var(--clr-grey-800);
-  padding: 1.5rem;
+  padding: 2rem 1.5rem;
   border-radius: 0.5rem;
 }
 
